@@ -7,16 +7,16 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class GetDataFromPropertiesFile {
+public class getDataFromProperties {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
 		WebDriver driver = new ChromeDriver();
 		
-		FileInputStream fis = new FileInputStream("./src/main/resources/CommonData.properties");
+		
+		FileInputStream fis = new FileInputStream("./src/test/resources/CommonData.properties");
 		
 		Properties pObj = new Properties();
-		
 		pObj.load(fis);
 		
 		
@@ -33,8 +33,6 @@ public class GetDataFromPropertiesFile {
 		
 		Thread.sleep(2000);
 		driver.quit();
-	
-
 	}
 
 }
