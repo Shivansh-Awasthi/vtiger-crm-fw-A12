@@ -3,6 +3,7 @@ package oppourtunities;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 import java.util.Set;
 
 import org.apache.poi.EncryptedDocumentException;
@@ -26,10 +27,9 @@ public class newOppourtunitiesExcel {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		
 		
-		//common data
+		//common script data
 		
-		
-		FileInputStream fis = new FileInputStream("./src/test/resources/CommonData.properties");
+		FileInputStream fis = new FileInputStream("	./src/test/resources/testScriptData.xlsx");
 		
 		
 		Workbook wb = WorkbookFactory.create(fis);
@@ -39,17 +39,30 @@ public class newOppourtunitiesExcel {
 		Cell data = row.getCell(1 + (int)(Math.random()*1000)); 
 	    String name = data.getStringCellValue();
 		
+	    
+	    FileInputStream fisProp = new FileInputStream("./src/test/resources/CommonData.properties");
+	    Properties pObj = new Properties();
+	    
+	    pObj.load(fisProp);
+	    
+	    String browser = pObj.getProperty("browser");
+		String url =  pObj.getProperty("url");
+		String username =  pObj.getProperty("ussername");
+		String password =  pObj.getProperty("password");
+		
+		
+		
 		
 		
 		//go to the Admin panel
-				driver.get("http://localhost:8888/");
+				driver.get(url);
 				
 				//login to the panel
 				
-				WebElement username = driver.findElement(By.name("user_name"));
-				username.sendKeys("admin");
-				WebElement password = driver.findElement(By.name("user_password"));
-				password.sendKeys("manager");
+				WebElement username1 = driver.findElement(By.name("user_name"));
+				username1.sendKeys(username);
+				WebElement password1 = driver.findElement(By.name("user_password"));
+				password1.sendKeys(password);
 				
 				driver.findElement(By.id("submitButton")).click();
 				
