@@ -10,7 +10,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-import generic_utility.webDriverUtility;
+import generic_utility.file_utility;
 
 
 
@@ -50,7 +50,7 @@ public class getDataFromExcel {
 //		String value = data.getStringCellValue();
 		
 		
-		webDriverUtility gdfe = new webDriverUtility();
+		file_utility gdfe = new file_utility();
 		
 		
 		String value = gdfe.getDataFromExcel("bike", 8, 0);

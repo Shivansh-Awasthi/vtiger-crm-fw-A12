@@ -20,7 +20,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import generic_utility.file_utility;
-import generic_utility.webDriverUtility;
+
 
 public class customPropsOppourtunities {
 	
@@ -31,10 +31,7 @@ public class customPropsOppourtunities {
 	public static void main(String[] args) throws InterruptedException, EncryptedDocumentException, IOException {
 		
 		file_utility gdfp = new file_utility();
-	webDriverUtility gdfe = new webDriverUtility();
 		
-		
-
 		
 		
 		WebDriver driver = new ChromeDriver();
@@ -57,7 +54,7 @@ public class customPropsOppourtunities {
 //	    String name = data.getStringCellValue();
 	    
 	    
-		String name = gdfe.getDataFromExcel("bike", 8, 0);
+		String name = gdfp.getDataFromExcel("bike", 8, 0);
 		
 	    
 	    
